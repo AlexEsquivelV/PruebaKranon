@@ -1,0 +1,12 @@
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\bin\Debug\Business.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\bin\Debug\Business.pdb
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\bin\Debug\Data.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\bin\Debug\Data.pdb
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\obj\Debug\Business.csprojAssemblyReference.cache
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\obj\Debug\Business.csproj.CopyComplete
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\obj\Debug\Business.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\obj\Debug\Business.pdb
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\bin\Debug\EntityFramework.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\bin\Debug\Data.dll.config
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Business\bin\Debug\EntityFramework.xml

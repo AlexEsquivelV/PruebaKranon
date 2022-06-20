@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/JSPersonalizados/JSAdaptado.js"></script>
+    <script src="~/Scripts/JSPersonalizados/JSNuevoRegistro.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12" style="text-align:center;">
+                <h1>Libreria - Kranon -</h1>
+                <hr />
+                <!-- Button trigger modal -->
+                <a id="ShowModal" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Nuevo Libro
+                </a> | <a href="/Home/RegistrosLibros">Mostrar todos los registros</a>
+                <br />
+                <br />
+                <form id="fbuscar" method="post">
+                    <label for="buscar">Buscar</label>
+                    <input type="text" class="form-control" id="buscar" name="buscar" placeholder="Ingresa el: Autor, Titulo, Año o Editorial" />
+                    <span id="buscarV" style="color:red; font-size: 15px;"></span>
+
+                </form>
+                <br />
+                <button type="button" class="btn btn-dark" id="btnAutor">Buscar por Autor</button> -
+                <button type="button" class="btn btn-dark" id="btnTitulo">Buscar por Titulo</button> -
+                <button type="button" class="btn btn-dark" id="btnAnio">Buscar por Año de publicación</button> -
+                <button type="button" class="btn btn-dark" id="btnEditorial">Buscar por Editorial</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8" style="text-align:left">
+                <div id="ResultadoB">
+                    <h3>Resultados Busqueda</h3>
+                    <br />
+                    <br />
+                    <table class="table table-dark" style="align-content:center;">
+                        <thead>
+                            <tr>
+                                <th>Autor</th>
+                                <th>Titulo</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="Libros"></tbody>
+
+                    </table>
+                </div>
+
+            </div>
+            <div class="col-sm-4" style="text-align:center">
+                <div id="detalles">
+                    <h4>Detalles Libro</h4>
+                    <table class="table table-info" style="align-content:center;">
+                        <thead>
+                            <tr>
+                                <th>Autor</th>
+                                <th>Titulo</th>
+                                <th>Año Publicación</th>
+                                <th>Editorial</th>
+                            </tr>
+                        </thead>
+                        <tbody id="DLibros"></tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Libro</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="modal-content">
+                            <form id="FormLibros">
+                                <div class="form-group">
+                                    <label for="Autor">Autor</label>
+                                    <input autofocus type="text" class="form-control" id="Autor" placeholder="Nombre Apellido" />
+                                    <span id="AutorAdd" style="color:red; font-size: 15px;"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Titulo">Titulo</label>
+                                    <input type="text" class="form-control" id="Titulo" placeholder="El libro ejemplo Vol.2" />
+                                    <span id="TituloAdd" style="color:red; font-size: 15px;"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="anio_publicacion">Año de Publicacion</label>
+                                    <input type="number" maxlength="4" max="2022" class="form-control" id="anio_publicacion" placeholder="2022" />
+                                    <span id="AnioAdd" style="color:red; font-size: 15px;"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Editorial">Editorial</label>
+                                    <input type="text" class="form-control" id="Editorial" placeholder="Editorial" />
+                                    <span id="EditorialAdd" style="color:red; font-size: 15px;"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnAdd">Agregar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

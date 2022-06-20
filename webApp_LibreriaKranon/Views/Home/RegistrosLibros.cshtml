@@ -1,0 +1,124 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegistrosLibros</title>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Libreria - Kranon -</h1>
+                <hr />
+                <a href="/Home/Index">Regresar</a>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-10" style="text-align:left">
+                <div id="ResultadoB">
+                    <h3>Lista de Libros registrados</h3>
+                    <br />
+                    <table class="table table-dark" style="align-content:center;">
+                        <thead>
+                            <tr>
+                                <th>Autor</th>
+                                <th>Titulo</th>
+                                <th>Año Publicación</th>
+                                <th>Editorial</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="Registros"></tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            CargarGridLibros();
+        });
+
+        function CargarGridLibros() {
+            $.ajax({
+                type: "get",
+                url: "/Home/Obtener",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                success: function (result) {
+                    var html = "";
+                    $.each(result, function (key, item) {
+                        html += "<tr>";
+                        html += "<td>" + item.Autor + "</td>";
+                        html += "<td>" + item.Titulo + "</td>";
+                        html += "<td>" + item.anio_publicacion + "</td>";
+                        html += "<td>" + item.Editorial + "</td>";
+                        html += '<td><a href="#" onclick="Eliminar(\'' + item.Autor + '\');">Eliminar</a></td>';
+                        html += '<td><a href="#" onclick="EliminarEd(\'' + item.Editorial + '\');">Eliminar por Editorial</a></td>';
+                        html += "</tr>";
+                    })
+                    $("#Registros").html(html);
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+
+
+        }
+
+        function Eliminar(Autor) {
+            var ans = confirm("¿Esta seguro de Eliminar los registros del autor:  " + Autor + "?");
+            if (ans) {
+                $.ajax({
+                    url: "/Home/EliminarLibro/?Autor=" + Autor,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        alert("Se elimino con exito");
+                        CargarGridLibros();
+                    },
+                    error: function (errormessage) {
+                        alert(errormessage.responseText);
+                    }
+                });
+            }
+        };
+
+        function EliminarEd(Editorial) {
+            var ans = confirm("¿Esta seguro de Eliminar los registros de la editorial:  " + Editorial + "?");
+            if (ans) {
+                $.ajax({
+                    url: "/Home/EliminarEditorial/?Editorial=" + Editorial,
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        alert("Se elimino con exito");
+                        CargarGridLibros();
+                    },
+                    error: function (errormessage) {
+                        alert(errormessage.responseText);
+                    }
+                });
+            }
+        };
+    </script>
+</body>
+</html>

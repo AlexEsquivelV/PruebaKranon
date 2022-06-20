@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibreriaKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="Id_Libro" />
+    </Key>
+    <Property Name="Id_Libro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Autor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="anio_publicacion" Type="Int32" Nullable="false" />
+    <Property Name="Editorial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="LKEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Libros" EntityType="Self.Libros" />
+    <FunctionImport Name="SP_AllR" ReturnType="Collection(LibreriaKModel.SP_AllR_Result)" />
+    <FunctionImport Name="SP_Autor_Eliminar">
+      <Parameter Name="Autor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Editorial_Eliminar">
+      <Parameter Name="Editorial" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Gby_Anio" ReturnType="Collection(LibreriaKModel.SP_Gby_Anio_Result)">
+      <Parameter Name="anio_publicacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Gby_Autor" ReturnType="Collection(LibreriaKModel.SP_Gby_Autor_Result)">
+      <Parameter Name="Autor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Gby_AutoryAnio" ReturnType="Collection(LibreriaKModel.SP_Gby_AutoryAnio_Result)">
+      <Parameter Name="Autor" Mode="In" Type="String" />
+      <Parameter Name="anio_publicacion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Gby_Editorial" ReturnType="Collection(LibreriaKModel.SP_Gby_Editorial_Result)">
+      <Parameter Name="Editorial" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Gby_Titulo" ReturnType="Collection(LibreriaKModel.SP_Gby_Titulo_Result)">
+      <Parameter Name="Titulo" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Libro_Ins">
+      <Parameter Name="Autor" Mode="In" Type="String" />
+      <Parameter Name="Titulo" Mode="In" Type="String" />
+      <Parameter Name="anio_publicacion" Mode="In" Type="Int32" />
+      <Parameter Name="Editorial" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_AllR_Result">
+    <Property Type="Int32" Name="Id_Libro" Nullable="false" />
+    <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+    <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Gby_Anio_Result">
+    <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+    <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Gby_Autor_Result">
+    <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+    <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Gby_AutoryAnio_Result">
+    <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+    <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Gby_Editorial_Result">
+    <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+    <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="SP_Gby_Titulo_Result">
+    <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+    <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+  </ComplexType>
+</Schema>

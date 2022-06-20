@@ -1,0 +1,12 @@
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\bin\Debug\Data.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\bin\Debug\Data.pdb
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\obj\Debug\Data.csproj.CoreCompileInputs.cache
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\obj\Debug\Data.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\obj\Debug\Data.pdb
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\bin\Debug\Data.dll.config
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\bin\Debug\EntityFramework.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\bin\Debug\EntityFramework.xml
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Kranon\Proyectos\sol_webApp_LibreriaKranon\Data\obj\Debug\Data.csproj.CopyComplete

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LibreriaKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Libros">
+          <Key>
+            <PropertyRef Name="Id_Libro" />
+          </Key>
+          <Property Name="Id_Libro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Autor" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="anio_publicacion" Type="int" Nullable="false" />
+          <Property Name="Editorial" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Function Name="SP_AllR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_Autor_Eliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Autor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_Editorial_Eliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Editorial" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_Gby_Anio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="anio_publicacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Gby_Autor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Autor" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_Gby_AutoryAnio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Autor" Type="varchar" Mode="In" />
+          <Parameter Name="anio_publicacion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_Gby_Editorial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Editorial" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_Gby_Titulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Titulo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_Libro_Ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Autor" Type="varchar" Mode="In" />
+          <Parameter Name="Titulo" Type="varchar" Mode="In" />
+          <Parameter Name="anio_publicacion" Type="int" Mode="In" />
+          <Parameter Name="Editorial" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="LibreriaKModelStoreContainer">
+          <EntitySet Name="Libros" EntityType="Self.Libros" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibreriaKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Libros">
+          <Key>
+            <PropertyRef Name="Id_Libro" />
+          </Key>
+          <Property Name="Id_Libro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Autor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="anio_publicacion" Type="Int32" Nullable="false" />
+          <Property Name="Editorial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="LKEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Libros" EntityType="Self.Libros" />
+          <FunctionImport Name="SP_AllR" ReturnType="Collection(LibreriaKModel.SP_AllR_Result)" />
+          <FunctionImport Name="SP_Autor_Eliminar">
+            <Parameter Name="Autor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Editorial_Eliminar">
+            <Parameter Name="Editorial" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Gby_Anio" ReturnType="Collection(LibreriaKModel.SP_Gby_Anio_Result)">
+            <Parameter Name="anio_publicacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Gby_Autor" ReturnType="Collection(LibreriaKModel.SP_Gby_Autor_Result)">
+            <Parameter Name="Autor" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Gby_AutoryAnio" ReturnType="Collection(LibreriaKModel.SP_Gby_AutoryAnio_Result)">
+            <Parameter Name="Autor" Mode="In" Type="String" />
+            <Parameter Name="anio_publicacion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Gby_Editorial" ReturnType="Collection(LibreriaKModel.SP_Gby_Editorial_Result)">
+            <Parameter Name="Editorial" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Gby_Titulo" ReturnType="Collection(LibreriaKModel.SP_Gby_Titulo_Result)">
+            <Parameter Name="Titulo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_Libro_Ins">
+            <Parameter Name="Autor" Mode="In" Type="String" />
+            <Parameter Name="Titulo" Mode="In" Type="String" />
+            <Parameter Name="anio_publicacion" Mode="In" Type="Int32" />
+            <Parameter Name="Editorial" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_AllR_Result">
+          <Property Type="Int32" Name="Id_Libro" Nullable="false" />
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+          <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_Gby_Anio_Result">
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+          <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_Gby_Autor_Result">
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+          <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_Gby_AutoryAnio_Result">
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+          <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_Gby_Editorial_Result">
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+          <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_Gby_Titulo_Result">
+          <Property Type="String" Name="Autor" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Titulo" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="anio_publicacion" Nullable="false" />
+          <Property Type="String" Name="Editorial" Nullable="false" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibreriaKModelStoreContainer" CdmEntityContainer="LKEntities">
+          <EntitySetMapping Name="Libros">
+            <EntityTypeMapping TypeName="LibreriaKModel.Libros">
+              <MappingFragment StoreEntitySet="Libros">
+                <ScalarProperty Name="Id_Libro" ColumnName="Id_Libro" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_AllR" FunctionName="LibreriaKModel.Store.SP_AllR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibreriaKModel.SP_AllR_Result">
+                <ScalarProperty Name="Id_Libro" ColumnName="Id_Libro" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Autor_Eliminar" FunctionName="LibreriaKModel.Store.SP_Autor_Eliminar" />
+          <FunctionImportMapping FunctionImportName="SP_Editorial_Eliminar" FunctionName="LibreriaKModel.Store.SP_Editorial_Eliminar" />
+          <FunctionImportMapping FunctionImportName="SP_Gby_Anio" FunctionName="LibreriaKModel.Store.SP_Gby_Anio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Anio_Result">
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Gby_Autor" FunctionName="LibreriaKModel.Store.SP_Gby_Autor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Autor_Result">
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Gby_AutoryAnio" FunctionName="LibreriaKModel.Store.SP_Gby_AutoryAnio">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_AutoryAnio_Result">
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Gby_Editorial" FunctionName="LibreriaKModel.Store.SP_Gby_Editorial">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Editorial_Result">
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Gby_Titulo" FunctionName="LibreriaKModel.Store.SP_Gby_Titulo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Titulo_Result">
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_Libro_Ins" FunctionName="LibreriaKModel.Store.SP_Libro_Ins" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

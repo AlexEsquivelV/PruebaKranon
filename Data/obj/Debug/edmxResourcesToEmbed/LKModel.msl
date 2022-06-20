@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibreriaKModelStoreContainer" CdmEntityContainer="LKEntities">
+    <EntitySetMapping Name="Libros">
+      <EntityTypeMapping TypeName="LibreriaKModel.Libros">
+        <MappingFragment StoreEntitySet="Libros">
+          <ScalarProperty Name="Id_Libro" ColumnName="Id_Libro" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_AllR" FunctionName="LibreriaKModel.Store.SP_AllR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibreriaKModel.SP_AllR_Result">
+          <ScalarProperty Name="Id_Libro" ColumnName="Id_Libro" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Autor_Eliminar" FunctionName="LibreriaKModel.Store.SP_Autor_Eliminar" />
+    <FunctionImportMapping FunctionImportName="SP_Editorial_Eliminar" FunctionName="LibreriaKModel.Store.SP_Editorial_Eliminar" />
+    <FunctionImportMapping FunctionImportName="SP_Gby_Anio" FunctionName="LibreriaKModel.Store.SP_Gby_Anio">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Anio_Result">
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Gby_Autor" FunctionName="LibreriaKModel.Store.SP_Gby_Autor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Autor_Result">
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Gby_AutoryAnio" FunctionName="LibreriaKModel.Store.SP_Gby_AutoryAnio">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_AutoryAnio_Result">
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Gby_Editorial" FunctionName="LibreriaKModel.Store.SP_Gby_Editorial">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Editorial_Result">
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Gby_Titulo" FunctionName="LibreriaKModel.Store.SP_Gby_Titulo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LibreriaKModel.SP_Gby_Titulo_Result">
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="anio_publicacion" ColumnName="anio_publicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Libro_Ins" FunctionName="LibreriaKModel.Store.SP_Libro_Ins" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibreriaKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Libros">
+    <Key>
+      <PropertyRef Name="Id_Libro" />
+    </Key>
+    <Property Name="Id_Libro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Autor" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Titulo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="anio_publicacion" Type="int" Nullable="false" />
+    <Property Name="Editorial" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Function Name="SP_AllR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_Autor_Eliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Autor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Editorial_Eliminar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Editorial" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Gby_Anio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="anio_publicacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Gby_Autor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Autor" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Gby_AutoryAnio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Autor" Type="varchar" Mode="In" />
+    <Parameter Name="anio_publicacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Gby_Editorial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Editorial" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Gby_Titulo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Titulo" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Libro_Ins" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Autor" Type="varchar" Mode="In" />
+    <Parameter Name="Titulo" Type="varchar" Mode="In" />
+    <Parameter Name="anio_publicacion" Type="int" Mode="In" />
+    <Parameter Name="Editorial" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="LibreriaKModelStoreContainer">
+    <EntitySet Name="Libros" EntityType="Self.Libros" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
